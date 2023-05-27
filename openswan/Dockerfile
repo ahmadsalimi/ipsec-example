@@ -1,7 +1,4 @@
-FROM centos:7
-
-RUN yum makecache fast
-RUN yum install openswan lsof sysvinit-tools which policycoreutils -y
+FROM hwdsl2/ipsec-vpn-server
 
 COPY ./entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
