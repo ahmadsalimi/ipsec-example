@@ -31,7 +31,8 @@ services:
     privileged: true
     hostname: ipsec1
     volumes:
-      - ./ipsec1.conf:/etc/ipsec.conf
+      - ./ipsec1.conf:/etc/ipsec.conf:ro
+      - ./vpn.secrets:/etc/ipsec.d/vpn.secrets:ro
 
   ipsec2:
     build: ./openswan
@@ -43,7 +44,8 @@ services:
     privileged: true
     hostname: ipsec2
     volumes:
-      - ./ipsec2.conf:/etc/ipsec.conf
+      - ./ipsec2.conf:/etc/ipsec.conf:ro
+      - ./vpn.secrets:/etc/ipsec.d/vpn.secrets:ro
 
 networks:
   net1:
