@@ -12,8 +12,8 @@ sysctl -w net.ipv4.conf.all.send_redirects=0
 # Check for kernel modules
 /usr/libexec/ipsec/_stackmanager start
 # Check for nss database status and migration
-/usr/sbin/ipsec --checknss
+ipsec --checknss
 # Check for nflog setup
-/usr/sbin/ipsec --checknflog
+ipsec --checknflog
 # Start the actual IKE daemon
 /usr/libexec/ipsec/pluto --leak-detective --config /etc/ipsec.conf --nofork
