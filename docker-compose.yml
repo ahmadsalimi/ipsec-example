@@ -8,9 +8,8 @@ services:
         ipv4_address: 10.5.1.2
     hostname: server1
     command:
-      - bash
-      - -c
-      - "watch ls"
+      - sleep
+      - infinity
 
   server2:
     image: ubuntu
@@ -19,9 +18,8 @@ services:
         ipv4_address: 10.5.2.2
     hostname: server2
     command:
-      - bash
-      - -c
-      - "watch ls"
+      - sleep
+      - infinity
 
   ipsec1:
     build: ./openswan
@@ -36,9 +34,8 @@ services:
     volumes:
       - ./ipsec1.conf:/etc/ipsec.conf
     command:
-      - bash
-      - -c
-      - "watch ls"
+      - sleep
+      - infinity
 
   ipsec2:
     build: ./openswan
@@ -53,9 +50,8 @@ services:
     volumes:
       - ./ipsec2.conf:/etc/ipsec.conf
     command:
-      - bash
-      - -c
-      - "watch ls"
+      - sleep
+      - infinity
 
 networks:
   net1:
