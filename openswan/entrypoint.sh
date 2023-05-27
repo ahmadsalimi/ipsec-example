@@ -390,7 +390,7 @@ fi
 
 # EOF
 
-if [ "$disable_ipsec_l2tp" != yes ]; then
+# if [ "$disable_ipsec_l2tp" != yes ]; then
 # cat >> /etc/ipsec.conf <<'EOF'
 # conn l2tp-psk
 #   auto=add
@@ -400,8 +400,8 @@ if [ "$disable_ipsec_l2tp" != yes ]; then
 #   also=shared
 
 # EOF
-fi
-if [ "$disable_ipsec_xauth" != yes ]; then
+# fi
+# if [ "$disable_ipsec_xauth" != yes ]; then
 # cat >> /etc/ipsec.conf <<EOF
 # conn xauth-psk
 #   auto=add
@@ -417,18 +417,18 @@ if [ "$disable_ipsec_xauth" != yes ]; then
 #   also=shared
 
 # EOF
-fi
+# fi
 
 # cat >> /etc/ipsec.conf <<'EOF'
 # include /etc/ipsec.d/*.conf
 # EOF
 
-if uname -r | grep -qi 'coreos'; then
+# if uname -r | grep -qi 'coreos'; then
 #   sed -i '/phase2alg/s/,aes256-sha2_512//' /etc/ipsec.conf
-fi
-if grep -qs ike-frag /etc/ipsec.d/ikev2.conf; then
-  sed -i 's/^[[:space:]]\+ike-frag=/  fragmentation=/' /etc/ipsec.d/ikev2.conf
-fi
+# fi
+# if grep -qs ike-frag /etc/ipsec.d/ikev2.conf; then
+#   sed -i 's/^[[:space:]]\+ike-frag=/  fragmentation=/' /etc/ipsec.d/ikev2.conf
+# fi
 
 # Specify IPsec PSK
 cat > /etc/ipsec.secrets <<EOF
