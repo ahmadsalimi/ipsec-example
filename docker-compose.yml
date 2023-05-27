@@ -32,7 +32,7 @@ services:
     privileged: true
     hostname: ipsec1
     volumes:
-      - ./ipsec1.conf:/etc/ipsec.conf:ro
+      - ./ipsec1.conf:/etc/ipsec.d/vpn.conf:ro
       # - ./vpn.secrets:/etc/ipsec.d/vpn.secrets:ro
     environment:
       - VPN_IPSEC_PSK
@@ -50,7 +50,7 @@ services:
     privileged: true
     hostname: ipsec2
     volumes:
-      - ./ipsec2.conf:/etc/ipsec.conf:ro
+      - ./ipsec2.conf:/etc/ipsec.d/vpn.conf:ro
       # - ./vpn.secrets:/etc/ipsec.d/vpn.secrets:ro
     environment:
       - VPN_IPSEC_PSK
