@@ -32,9 +32,6 @@ services:
     hostname: ipsec1
     volumes:
       - ./ipsec1.conf:/etc/ipsec.conf
-    command:
-      - sleep
-      - infinity
 
   ipsec2:
     build: ./openswan
@@ -47,9 +44,6 @@ services:
     hostname: ipsec2
     volumes:
       - ./ipsec2.conf:/etc/ipsec.conf
-    command:
-      - sleep
-      - infinity
 
 networks:
   net1:
