@@ -8,8 +8,9 @@ services:
         ipv4_address: 10.5.1.2
     hostname: server1
     command:
-      - watch
-      - ls
+      - bash
+      - -c
+      - "watch ls"
 
   server2:
     image: ubuntu
@@ -18,8 +19,9 @@ services:
         ipv4_address: 10.5.2.2
     hostname: server2
     command:
-      - watch
-      - ls
+      - bash
+      - -c
+      - "watch ls"
 
   ipsec1:
     build: ./openswan
@@ -34,8 +36,9 @@ services:
     volumes:
       - ./ipsec1.conf:/etc/ipsec.conf
     command:
-      - watch
-      - ls
+      - bash
+      - -c
+      - "watch ls"
 
   ipsec2:
     build: ./openswan
@@ -50,8 +53,9 @@ services:
     volumes:
       - ./ipsec2.conf:/etc/ipsec.conf
     command:
-      - watch
-      - ls
+      - bash
+      - -c
+      - "watch ls"
 
 networks:
   net1:
