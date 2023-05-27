@@ -4,7 +4,7 @@ services:
   ipsec-1:
     image: energy1190/openswan
     networks:
-      ipsec:
+      ipsec-1-net:
         ipv4_address: 172.1.1.1
     hostname: ipsec-1
     volumes:
@@ -13,16 +13,21 @@ services:
   ipsec-2:
     image: energy1190/openswan
     networks:
-      ipsec:
+      ipsec-2-net:
         ipv4_address: 172.1.2.1
     hostname: ipsec-2
     volumes:
       - ./ipsec-2.conf:/etc/ipsec.conf
 
 networks:
-  ipsec:
+  ipsec-1-net:
     driver: bridge
     ipam:
       config:
         - subnet: 172.1.1.0/24
+
+  ipsec-2-net:
+    driver: bridge
+    ipam:
+      config:
         - subnet: 172.1.2.0/24
